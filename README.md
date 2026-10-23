@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 NextStep — Gerenciador de Projetos (Kanban PWA)
 
-## Getting Started
+O **NextStep** é uma aplicação moderna e interativa para gerenciamento de projetos em estilo Kanban. Este projeto foi desenvolvido focado em boas práticas de engenharia de software para se tornar uma aplicação mobile-first robusta, totalmente tipada, instalável como PWA e resiliente a falhas de conexão por meio de persistência offline.
 
-First, run the development server:
+## 🚀 Link do Projeto no Ar
+👉 [Acesse a aplicação na Vercel aqui](SEU_LINK_DA_VERCEL_AQUI)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tecnologias e Ferramentas Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Core & Interface
+*   **Next.js (App Router):** Framework padrão de mercado para renderização otimizada, roteamento dinâmico unificado e alta performance.
+*   **TypeScript:** Tipagem estática avançada em todo o fluxo de dados do painel, mitigando comportamentos inesperados em tempo de compilação.
+*   **Tailwind CSS:** Utilitários de estilização integrados para a construção de uma interface fluida, moderna e totalmente responsiva.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Qualidade de Código
+*   **ESLint:** Linter para garantir padrões rígidos de sintaxe, guias de estilo de mercado e prevenção de quebras das regras de React Hooks.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura do Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Centralização de Estado Complexo (useReducer)
+Toda a lógica de manipulação das tarefas (Criar, Mover, Deletar) foi completamente removida do escopo comum dos componentes e encapsulada em uma máquina de estados finitos previsível via `useReducer`. Isso garante uma barreira contra efeitos colaterais indesejados e centraliza as regras de negócio em um único manipulador lógico.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Roteamento Dinâmico Inteligente (`[id]`)
+Utilização de rotas dinâmicas do Next.js para isolamento de contextos. A página `/tarefa/[id]` intercepta o identificador único diretamente da URL, realizando leituras e atualizações granulares de dados específicos da tarefa sem onerar o carregamento do painel principal (Kanban).
 
-## Deploy on Vercel
+### 4. Ciclo de Vida Assíncrono e Estratégia de Hidratação
+A sincronização com o banco local (`localStorage`) foi projetada respeitando o comportamento do Next.js. O estado inicial nasce limpo para evitar erros de hidratação (*SSR vs Client*), e os dados persistidos são injetados em um segundo momento de forma limpa por meio da action especializada `HYDRATE_TASKS`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔧 Configuração da PWA e Cache Offline
+
+O aplicativo está configurado para adotar uma postura resiliente de cache. O manifesto define propriedades de display autônomo (*standalone*) e o travamento de zoom máximo garante a sensação de usabilidade idêntica a de um aplicativo mobile nativo. Tudo funciona offline.
+
+---
+
+## 💻 Como Rodar o Projeto Localmente
+
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Execute o ambiente de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+4. Para testar o comportamento real da PWA (Gerando os arquivos de Service Worker no diretório `public/`), execute o build de produção:
+   ```bash
+   npm run build
+   npm start
+   ```
+
+---
+
+Desenhado e desenvolvido por **Renan Mezzacapa** 🚀. Conecte-se comigo no [LinkedIn](seu-link-do-linkedin).
