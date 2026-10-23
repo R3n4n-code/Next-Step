@@ -1,9 +1,9 @@
-# 📚 NextStep — Gerenciador de Projetos (Kanban PWA)
+# ✅ NextStep — Gerenciador de Projetos (Kanban PWA)
 
 O **NextStep** é uma aplicação moderna e interativa para gerenciamento de projetos em estilo Kanban. Este projeto foi desenvolvido focado em boas práticas de engenharia de software para se tornar uma aplicação mobile-first robusta, totalmente tipada, instalável como PWA e resiliente a falhas de conexão por meio de persistência offline.
 
-## 🚀 Link do Projeto no Ar
-👉 [Acesse a aplicação na Vercel aqui](SEU_LINK_DA_VERCEL_AQUI)
+## </> Link do Projeto no Ar
+👉 [Acesse a aplicação na Vercel aqui](https://next-step-one-jade.vercel.app/)
 
 ---
 
